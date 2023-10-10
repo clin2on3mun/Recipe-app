@@ -31,8 +31,10 @@
 /config/master.key
 
 
+# .gitignore
 /app/assets/builds/*
 !/app/assets/builds/.keep
 config/database.yml
 Gemfile
 .ruby-version
+node_modules/
