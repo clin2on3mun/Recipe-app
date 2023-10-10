@@ -8,7 +8,7 @@ class Recipe < ApplicationRecord
   validates :description, presence: true, allow_blank: false
   validates :public, inclusion: { in: [true, false] }
 
-  #prearation time:
+  # prearation time:
   def preparation_time_minutes
     minutes = preparation_time % 60
     minutes.to_i
@@ -19,28 +19,27 @@ class Recipe < ApplicationRecord
     hours.to_i
   end
 
-#cooking time:
-def cooking_time_minutes
-  minutes = cooking_time % 60
-  minutes.to_i
-end
-
+  # cooking time:
+  def cooking_time_minutes
+    minutes = cooking_time % 60
+    minutes.to_i
+  end
 
   def cooking_time_hours
     hours = cooking_time / 60
     hours.to_i
   end
 
-  #total
+  # total
   def total_time_minutes
     total = preparation_time + cooking_time
     minutes = total % 60
     minutes.to_i
   end
+
   def total_time_hours
     total = preparation_time + cooking_time
     hours = total / 60
     hours.to_i
   end
-
 end

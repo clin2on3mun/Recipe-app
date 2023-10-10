@@ -1,36 +1,36 @@
 class RecipesController < ApplicationController
-    before_action :authenticate_user!
+  before_action :authenticate_user!
 
-    def index
-      @recipes = current_user.recipes
-    end
+  def index
+    @recipes = current_user.recipes
+  end
 
-    def new
-      @recipe = Recipe.new
-    end
+  def new
+    @recipe = Recipe.new
+  end
 
-    def show
+  def show
     @recipe = Recipe.find(params[:id])
     @preparation_time_minutes = @recipe.preparation_time_minutes
     @preparation_time_hours = @recipe.preparation_time_hours
     @cooking_time_minutes = @recipe.cooking_time_minutes
     @cooking_time_hours = @recipe.cooking_time_hours
-    end
+  end
 
-    def create
+  def create
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
     @recipe.preparation_time = calculate_minutes(params[:recipe][:preparation_time_hr],
                                                  params[:recipe][:preparation_time_min])
     @recipe.cooking_time = calculate_minutes(params[:recipe][:cooking_time_hr], params[:recipe][:cooking_time_min])
 
-      if @recipe.save
-        redirect_to @recipe
-      else
-        render 'new'
-      end
+    if @recipe.save
+      redirect_to @recipe
+    else
+      render 'new'
     end
-    
+  end
+
   def toggle_public
     @recipe = Recipe.find(params[:id])
     @recipe.update(public: !@recipe.public)
@@ -41,7 +41,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
     redirect_to recipes_path, notice: 'Recipe successfully deleted'
-   end
+  end
 
   private
 

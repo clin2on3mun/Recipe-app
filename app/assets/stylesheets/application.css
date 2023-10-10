@@ -57,7 +57,8 @@
 }
 
 .switch input:checked + label::after {
-  transform: translateX(
-    26px
-  ); /* Move the thumb to the right when switched on */
+  transform:
+    translateX(
+      26px
+    ); /* Move the thumb to the right when switched on */
 }
