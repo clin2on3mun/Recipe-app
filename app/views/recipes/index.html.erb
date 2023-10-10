@@ -1,0 +1,6 @@
+<h1 class="mt-12 ">My Recipes </h1>
+<div class="flex justify-center p-5">
+<% @recipes.each do |rec|%>
+<%= render 'shared/recipe_card', recipe: rec %>
+<% end %>
+</div>

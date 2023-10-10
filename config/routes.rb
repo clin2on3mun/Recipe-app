@@ -11,7 +11,10 @@ Rails.application.routes.draw do
   end
   
   resources :foods, only: [:index, :create, :new, :show, :destory]
-  resources :recipes, only: [:index, :create, :show, :destory] do 
+  resources :recipes, only: [:index, :create, :new, :show, :destory] do 
+     member do
+      post 'toggle_public'
+    end
     resources :recipe_foods, only: [:new, :create, :destory]
   end
   
