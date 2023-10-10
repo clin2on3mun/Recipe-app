@@ -31,7 +31,11 @@ class RecipesController < ApplicationController
       end
     end
     
-
+  def toggle_public
+    @recipe = Recipe.find(params[:id])
+    @recipe.update(public: !@recipe.public)
+    render json: { public: @recipe.public }
+  end
 
 
   private

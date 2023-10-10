@@ -3,16 +3,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
   publicToggle.addEventListener('change', function () {
     const url = this.dataset.url; // Get the URL from data attribute
-    const checked = this.checked; // Get the checkbox state
+    const checked = this.checked; 
 
-    // Send an AJAX request to toggle the public attribute
     fetch(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content'), // Include the CSRF token
       },
-      body: JSON.stringify({ public: checked }), // Send the new state
+      body: JSON.stringify({ public: checked }), 
     })
       .then((response) => response.json())
       .then((data) => {
