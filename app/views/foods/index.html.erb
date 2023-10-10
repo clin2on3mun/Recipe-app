@@ -1,0 +1,31 @@
+<div>
+    <%= link_to "Add food", '/foods/new', class: "inline-block float-right border-solid border-2 
+ border-green-600 p-2 bg-green-600 rounded-md hover:bg-green-700 text-white mb-1"%>
+     <table class = "table">
+        <thead>
+        <tr>
+            <th>Food</th>
+            <th>measurement unit</th>
+            <th>Unit price</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+    <% unless @foods.empty?%>
+    
+      <% @foods.each do|food| %>
+        <tr>
+            <td><%= food.name%></td>
+            <td><%= food.measurement_unit%></td>
+            <td>$<%= food.price%></td>
+            <td><%= link_to "Remove"</td>
+            </tr>
+       <%end%>  
+        <% else %>
+      <tr>
+        <td colspan="4">No food items available.</td>
+      </tr>
+    <% end %>
+    </tbody>   
+    </table>
+</div>

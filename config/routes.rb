@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     get 'users/sign_out', to: 'devise/sessions#destroy'
   end
   
-  resources :foods, only: [:index, :create, :new, :show, :destory]
+  resources :foods, only: [:index, :create, :new, :show, :destroy]
   resources :recipes, except: :edit do 
     resources :recipe_foods, only: [:new, :create, :destory]
     member do

@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
 .switch {
   position: relative;
   display: inline-block;
@@ -61,4 +62,23 @@
     translateX(
       26px
     ); /* Move the thumb to the right when switched on */
+}
+
+table {
+  width: 100%;
+  border: 1px solid black;
+}
+
+tr:nth-child(even) {
+  background-color: #cecece;
+}
+
+td,
+th {
+  border-right: 1px solid #000;
+  padding: 0 5px 0 5px;
+}
+
+thead {
+  background-color: #cecece;
 }
