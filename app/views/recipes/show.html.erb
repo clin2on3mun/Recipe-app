@@ -2,8 +2,8 @@
   <div class="flex flex-col items-center w-full gap-5">
     <% if current_user == @recipe.user %>
       <div class="mt-3 flex items-center">
+        <%= label_tag :public, "Public" %>
         <%= check_box_tag :public, 1, @recipe.public, { data: { remote: true, url: toggle_public_recipe_path(@recipe) }, class: "switch", id: "public-toggle" } %>
-        <%= label_tag :public, "Public:" %>
       </div>
     <% end %>
     <div class="relative flex flex-col items-center p-4 bg-white border-2 border-gray-100 sm:px-24 rounded-2xl bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-40">
