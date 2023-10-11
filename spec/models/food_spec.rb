@@ -1,5 +1,42 @@
 require 'rails_helper'
 
 RSpec.describe Food, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:user) { User.create(name: 'Munana', email: 'munana@rwanda.com', password: '111111') }
+
+  subject {
+    described_class.new(
+      name: 'Rice',
+      measurement_unit: 'grams',
+      price: 10.0,
+      quantity: 100.0,
+      user: user
+    )
+  }
+
+   describe 'validations' do
+    it 'Is valid with valid attributes' do
+      expect(subject).to be_valid
+    end
+
+    it 'Is not valid without a name' do
+      subject.name = nil
+      expect(subject).to_not be_valid
+    end
+
+    it 'Is not valid without a measurement unit' do
+      subject.measurement_unit = nil
+      expect(subject).to_not be_valid
+    end
+
+    it 'Is not valid with a negative price' do
+      subject.price = -1
+      expect(subject).to_not be_valid
+    end
+
+    it 'Is not valid with a negative quantity' do
+      subject.quantity = -1
+      expect(subject).to_not be_valid
+    end
+  end
+
 end
