@@ -5,7 +5,7 @@ RSpec.describe RecipeFood, type: :model do
   let(:recipe) { Recipe.create(name: 'Kabsah') }
   let(:food) { Food.create(name: 'Rice', price: 10.0) }
 
-  subject { RecipeFood.new(quantity: 5, recipe: recipe, food: food) }
+  subject { described_class.new(quantity: 5, recipe: recipe, food: food) }
 
   describe 'validations' do
     it 'Is valid with valid attributes' do

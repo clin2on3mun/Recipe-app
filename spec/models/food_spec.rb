@@ -4,7 +4,7 @@ RSpec.describe Food, type: :model do
   let(:user) { User.create(name: 'Munana', email: 'munana@rwanda.com', password: '111111') }
 
   subject do
-    Food.new(
+    described_class.new(
       name: 'Rice',
       measurement_unit: 'grams',
       price: 10.0,
