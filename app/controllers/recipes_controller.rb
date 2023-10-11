@@ -10,7 +10,7 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.includes(recipe_foods: [:food]).find(params[:id])
     @preparation_time_minutes = @recipe.preparation_time_minutes
     @preparation_time_hours = @recipe.preparation_time_hours
     @cooking_time_minutes = @recipe.cooking_time_minutes
