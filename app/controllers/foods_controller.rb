@@ -2,7 +2,7 @@ class FoodsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @foods = Food.includes(:user)
+    @foods = current_user.foods.includes(:user)
   end
 
   def new
@@ -20,7 +20,7 @@ class FoodsController < ApplicationController
 
   def destroy
     @food = Food.find(params[:id])
-    if @food.destory
+    if @food.destroy
       redirect_to foods_path, notice: 'food deleted successfully'
     else
       redirect_to foods_path, notice: 'failed to delete food'
