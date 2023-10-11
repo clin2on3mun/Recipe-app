@@ -4,7 +4,7 @@
       <%= form.label :name, "Recipe name: " %>
       <%= form.text_field :name, class: "border border-slate-200", required: true %>
       <%= form.label :description, "Recipe description: " %>
-      <%= form.text_field :description, class: "border border-slate-200", required: true %>
+      <%= form.text_area :description, rows:5, class: "border border-slate-200", required: true %>
       <%= form.label :preparation_time, "Preparation time: " %>
       <div class="flex gap-2">
         <%= form.number_field :preparation_time_hr, placeholder: 0 , class: "border border-slate-200 w-1/5 text-center", required: true%>
