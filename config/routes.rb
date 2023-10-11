@@ -14,10 +14,10 @@ Rails.application.routes.draw do
   resources :recipes, except: :edit do 
     resources :recipe_foods, only: [:new, :create, :destroy]
     member do
-      post 'toggle_public'
+      patch 'toggle_public'
     end
   end
   
   resources :public_recipes, only: [:index]
-
+  resources :general_shopping_lists, only: [:index]
 end
