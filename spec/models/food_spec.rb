@@ -3,17 +3,17 @@ require 'rails_helper'
 RSpec.describe Food, type: :model do
   let(:user) { User.create(name: 'Munana', email: 'munana@rwanda.com', password: '111111') }
 
-  subject {
+  subject do
     described_class.new(
       name: 'Rice',
       measurement_unit: 'grams',
       price: 10.0,
       quantity: 100.0,
-      user: user
+      user:
     )
-  }
+  end
 
-   describe 'validations' do
+  describe 'validations' do
     it 'Is valid with valid attributes' do
       expect(subject).to be_valid
     end
@@ -38,5 +38,4 @@ RSpec.describe Food, type: :model do
       expect(subject).to_not be_valid
     end
   end
-
 end

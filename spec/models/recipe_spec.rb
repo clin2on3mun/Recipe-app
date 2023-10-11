@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Recipe, type: :model do
-subject { Recipe.new(name: 'Kabsah', description: 'The best in the west', cooking_time: 45, preparation_time: 40) } 
+  subject { Recipe.new(name: 'Kabsah', description: 'The best in the west', cooking_time: 45, preparation_time: 40) }
   before { subject.save }
 
   it 'Name should not be empty' do
