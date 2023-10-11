@@ -9,7 +9,7 @@ class RecipeFoodsController < ApplicationController
     @recipe_food = @recipe.recipe_foods.new(recipe_foods_params)
 
     if @recipe_food.save
-      redirect_to recipe_path(@recipe), notice: 'Add new ingredient'
+      redirect_to recipe_path(@recipe), notice: 'New ingredient added'
     else
       redirect_to new_recipe_recipe_food_path(@recipe.id)
     end

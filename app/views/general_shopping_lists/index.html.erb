@@ -1,4 +1,6 @@
-<div>
+<h1 class=" text-center text-4xl">Food</h1>
+   <div class="flex justify-center py-3">
+      <div class='w-1/2'>
     <%@all_item = 0%>
     <%@all_value = 0%>
     <%@foods.each do|food|%>
@@ -14,7 +16,6 @@
         <p>Amount of food to buy: <%= @all_item%></p>
         <p>Total value of food needed : $ <span><%= @all_value%> </span></p>
         <div>
-</div>
    <table>
       <thead>
         <tr>
@@ -39,3 +40,4 @@
                  <%end%>         
         </tbody>
     </table>
+    </div>
