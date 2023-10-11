@@ -5,7 +5,7 @@ RSpec.describe RecipeFood, type: :model do
   let(:recipe) { Recipe.create(name: 'Kabsah') }
   let(:food) { Food.create(name: 'Rice', price: 10.0) }
 
-  subject { described_class.new(quantity: 5, recipe:, food:) }
+  subject { described_class.new(quantity: 5, recipe: recipe, food: food) }
 
   describe 'validations' do
     it 'Is valid with valid attributes' do
@@ -17,7 +17,7 @@ RSpec.describe RecipeFood, type: :model do
       expect(subject).to_not be_valid
     end
 
-    it 'is not valid with a non-positive quantity' do
+    it 'Is not valid with a non-positive quantity' do
       subject.quantity = 0
       expect(subject).to_not be_valid
 
