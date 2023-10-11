@@ -13,9 +13,9 @@
   <body>
 
   <%= render 'shared/navmenu' %>
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-    <main class="container">
+    <main class="container mx-auto"">
+       <p class="notice flex flex-col items-center p-4 mb-2 text-blue-800 rounded-lg dark:bg-gray-800 dark:text-blue-400" ><%= notice %></p>
+       <p class="alert flex  flex-col items-center p-4 mb-2 text-red-800 rounded-lg dark:bg-gray-800 dark:text-red-400" ><%= alert %></p>
       <%= yield %>
     </main>
   </body>

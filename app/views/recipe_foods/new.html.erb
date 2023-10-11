@@ -1,11 +1,11 @@
-<div class="flex justify-center items-center">
+<div class="flex justify-center items-center flex-col">
     <div class="">
-        <h2 class="text-2xl font-semibold">Add new ingredient to: </h2>
-        <h3 class="text-center"><%= @recipe.name %></h3>
-        <div class="recipe-food-form-container mt-5 border p-5">
+        <h2 class="text-xl ">Add new ingredient to: </h2>
+        <h3 class="text-center text-2xl font-bold"><%= @recipe.name %></h3>
+        <div class=" mt-5  p-5">
             <%= form_with model: [@recipe, @recipe_food] do |f|%>
-                <div class="form-field mb-5">
-                    <%= f.collection_select :food_id, Food.order(:name), :id, :name_with_measurement_unit ,{prompt: "Choose ingredients"}, {value: " "} %>
+                <div class="form-field mb-5 ">
+                    <%= f.collection_select :food_id, Food.order(:name), :id, :name_with_measurement_unit ,{prompt: "Choose ingredients"}, {value: " "}%>
                 </div>
 
                 <div class="form-field mb-5">
@@ -13,7 +13,7 @@
                 </div>
 
                 <div class="form-field mb-5">
-                    <%= f.submit "Add new ingredient" , class: 'border bg-blue-500 px-3 py-1 text-white rounded-md'%>
+                    <%= f.submit "Add new ingredient" , class: 'border bg-blue-500 px-3 py-1 text-white rounded-md w-fill'%>
                 </div>
             <% end %>
 

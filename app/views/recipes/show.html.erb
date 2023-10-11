@@ -6,7 +6,7 @@
         <%= check_box_tag :public, 1, @recipe.public, { data: { remote: true, url: toggle_public_recipe_path(@recipe) }, class: "switch", id: "public-toggle" } %>
       </div>
     <% end %>
-    <div class="relative flex flex-col items-center p-4 bg-white border-2 border-gray-100 sm:px-24 rounded-2xl bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-40">
+    <div class="relative flex flex-col items-center p-4 border-2 border-gray-100 sm:px-24 rounded-2xl bg-clip-padding backdrop-filter backdrop-blur-3xl bg-gray-50">
       <div class="flex flex-col items-center gap-3">
         <h1 class="text-4xl font-bold text-center text-clamp-2">
           <%= @recipe.name %>
@@ -65,11 +65,11 @@
 <% unless @recipe.recipe_foods.empty?%>
     <tr >
     <% @recipe.recipe_foods.each do |recipe_food|%>
-      <td class="p-5"><%= recipe_food.food.name %></td>
-      <td class="p-5"><%= recipe_food.quantity %></td>
-      <td class="p-5"><%= recipe_food.total_price %></td>
-      <td class="p-5">
-        <%= button_to 'Delete', recipe_recipe_food_path(recipe_id: @recipe.id, id: recipe_food.id ), method: :delete, class: 'border px-3 py-1 text-white bg-red-500 my-5' %>
+      <td class="p-2"><%= recipe_food.food.name %></td>
+      <td class="p-2"><%= recipe_food.quantity %></td>
+      <td class="p-2"><%= recipe_food.total_price %></td>
+      <td class="p-2">
+        <%= button_to 'Delete', recipe_recipe_food_path(recipe_id: @recipe.id, id: recipe_food.id ), method: :delete, class: 'border px-3 py-1 text-white bg-red-500 rounded-lg hover:scale-105 transition-all float-right' %>
       </td>
 
     </tr>
