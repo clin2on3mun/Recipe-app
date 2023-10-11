@@ -9,7 +9,7 @@ RSpec.describe Food, type: :model do
       measurement_unit: 'grams',
       price: 10.0,
       quantity: 100.0,
-      user: # Set the user association to the user variable you created
+      user: user
     )
   end
 
