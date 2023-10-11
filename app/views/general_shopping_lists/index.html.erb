@@ -1,0 +1,41 @@
+<div>
+    <%@all_item = 0%>
+    <%@all_value = 0%>
+    <%@foods.each do|food|%>
+       <% if @recipe_foods.key?(food.id)%>
+          <%quantity_calc = @recipe_foods[food.id] - food.quantity %>
+          <%if quantity_calc > 0%>
+             <%@all_item += quantity_calc%>
+             <%@all_value += quantity_calc * food.price %>
+         <%end%>
+         <%end%>
+        <%end%> 
+     <div>
+        <p>Amount of food to buy: <%= @all_item%></p>
+        <p>Total value of food needed : $ <span><%= @all_value%> </span></p>
+        <div>
+</div>
+   <table>
+      <thead>
+        <tr>
+            <th>Food</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+            <% @foods.each do |food|%>
+               <% if @recipe_foods.key?(food.id)%>
+                 <%quantity_calc = @recipe_foods[food.id] - food.quantity %>
+                  <%if quantity_calc > 0%>
+                    <tr>
+                        <td><%=food.name%></td>
+                        <td><%=quantity_calc%></td>
+                        <td><%=quantity_calc * food.price%></td>
+
+                 </tr>  
+                 <%end%>
+                 <%end%>
+                 <%end%>         
+        </tbody>
+    </table>
