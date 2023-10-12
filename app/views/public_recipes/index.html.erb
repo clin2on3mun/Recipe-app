@@ -1,0 +1,11 @@
+<h1 class="text-center text-4xl"> Public Recipes </h1>
+<% if @recipes.length != 0 %>
+<div class="flex flex-wrap gap-2 justify-center p-6 ">
+<%  @recipes.each do |rec|%>
+<%= render 'shared/pub_recipe_card', recipe: rec %>
+<% end %>
+<% else %>
+<h1 class="font-extrabold lg:text-4xl md:text-3xl mt-5 text-2xl text-center text-red-800">There are no public recipes to show</h1>
+<% end %>
+
+</div>

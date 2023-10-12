@@ -1,0 +1,20 @@
+   <h1 class="my-5 font-bold text-center">Add New Food</h1>
+   <div class="flex justify-center py-3">
+        <%=form_with model: @food, url: foods_path, local: true do |form| %>
+          <div class="mb-1">
+            <%= form.text_field :name,class: "w-96", placeholder: "Enter food name"%>
+            </div>
+          <div class="mb-1">
+            <%= form.text_field :measurement_unit,class: "w-96", placeholder: "Enter measurement unit (ex:grams)"%>
+            </div>  
+          <div class="mb-1">
+            <%= form.text_field :price,class: "w-96", placeholder: "Enter price (ex:$1.5)"%>
+            </div>
+           <div class="mb-1">
+            <%= form.number_field :quantity, class: "w-96", placeholder: "Enter quantity"%>
+            </div>       
+             <div class="flex justify-center col-span-2 mt-3">
+            <%= form.submit "Create food", class: "bg-blue-500 text-white px-4 py-2 rounded-3xl cursor-pointer hover:bg-blue-400"%>
+            </div>
+         <% end %>
+        </div>
