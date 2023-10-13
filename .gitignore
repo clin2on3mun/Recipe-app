@@ -38,3 +38,4 @@ config/database.yml
 Gemfile
 .ruby-version
 node_modules/
+config/master.key
